@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fraud Information</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1 id="fraud-title">Fraud Title</h1>
+        <p id="fraud-description">Here you can display more detailed information about the fraud type.</p>
+        <h3>Solution</h3>
+        <p id="fraud-solution">Steps to prevent and report this fraud.</p>
+        <h3>Point of Contact</h3>
+        <p id="fraud-contact">Contact information for reporting this fraud.</p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const fraudType = params.get('type');
+            
+            if (fraudType) {
+                document.getElementById('fraud-title').innerText = fraudType.replace(/-/g, ' ');
+                // Add logic here to display specific information based on the fraud type
+            }
+        });
+    </script>
+</body>
+</html>
